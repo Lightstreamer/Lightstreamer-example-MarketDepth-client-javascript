@@ -40,7 +40,6 @@ The client demo configuration assumes that Lightstreamer Server, Lightstreamer A
 ```
 var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"MARKETDEPTH");
 ```
-<BR/> 
 and change it accordingly.
 * Open your browser and point it to: [http://localhost:8080/MarketDepthDemo/](http://localhost:8080/MarketDepthDemo/)
 
