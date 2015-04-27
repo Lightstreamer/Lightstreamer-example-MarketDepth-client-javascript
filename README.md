@@ -35,7 +35,7 @@ If you want to install a version of this demo pointing to your local Lightstream
 * Get the `lightstreamer.js` file from the [latest Lightstreamer distribution](http://www.lightstreamer.com/download) and put it in the `src/js` folder.
 Alternatively, you can build a `lightstreamer.js` file from the [online generator](http://www.lightstreamer.com/distros/Lightstreamer_Allegro-Presto-Vivace_6_0_20150213/Lightstreamer/DOCS-SDKs/sdk_client_javascript/tools/generator.html). In that case, be sure to include the LightstreamerClient, Subscription, StaticGrid, DynaGrid, and StatusWidget modules and to use the "Use AMD" version.
 * Get the `require.js` file form [requirejs.org](http://requirejs.org/docs/download.html) and put it in the `src/js` folder.
-* Deploy this demo on the Lightstreamer Server (used as Web server) or in any external Web Server. Please create the folders `<LS_HOME>/pages/MarketDepthDemo` and copy here the contents of the `/src` folder of this project.
+* Deploy this demo on the Lightstreamer Server (used as Web server) or in any external Web Server. In the former case, please create the folders `<LS_HOME>/pages/MarketDepthDemo` and copy here the contents of the `/src` folder of this project.
 The client demo configuration assumes that Lightstreamer Server, Lightstreamer Adapters, and this client are launched on the same machine. If you need to target a different Lightstreamer server, please search in `js/lsClient.js` this line:<BR/> 
 `var lsClient = new LightstreamerClient(protocolToUse+"//localhost:"+portToUse,"MARKETDEPTH");`<BR/> 
 and change it accordingly.
