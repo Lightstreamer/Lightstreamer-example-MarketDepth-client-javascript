@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<!--
+  LIGHTSTREAMER - www.lightstreamer.com
+  Basic Market Depth Demo
+  
+  Copyright 2015 Weswit s.r.l.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Lightstreamer :: Market Depth Demo</title>
+  <link rel="stylesheet" type="text/css" href="css/md.css" />
+</head>
+
+<body>
+  <a href="https://github.com/Weswit/Lightstreamer-example-MarketDepth-client-javascript" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <div id="wrap">
+    <table width="690px" border="0">  
+      <tr>
+        <td><a href="http://www.lightstreamer.com" target="_blank">
+          <img src="images/logo.png" alt="LIGHTSTREAMER" hspace="0" border="0" /></a></td>
+        <td class="demoTitle">MARKET DEPTH DEMO<br><span style="font-weight: normal;">(Simulated Level II Data)</span> </td>
+      </tr>
+    </table>
+
+    <br />
+    <br />
+	 
+	    <div>
+			<table >
+				<tr>
+				  <td class="hlabel" width="100px" ">Stock Name: </td>
+				  <td width="240px" ><div class="syntheticData" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="short_description">--</div></td>
+				  <td width="80px" class="hlabel" >Ref Price:</td>
+				  <td width="90px"><div class="syntheticData" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="reference_price">--</div></td>
+				  <td colspan="2" width="190px"><div class="syntheticDataPh" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="trading_phase">--</div></td>
+				</tr>
+				<tr>
+				  <td class="hlabel" width="100px">Last Time: </td>
+				  <td width="240px" ><div class="syntheticData" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="last">--</div></td>
+				  <td width="80px" class="hlabel">Last Price:</td>
+				  <td width="90px"><div class="syntheticData" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="last_price">--</div></td>
+				  <td width="80px" class="hlabel">Last Qty:</td>
+				  <td width="110px"><div class="syntheticData" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="last_qty">--</div></td>
+				 </tr>
+			</table>
+			
+			<!-- order entry section; see management code in buysell.js -->
+			<form onSubmit="return false;" class="tablespacer">
+				<table class="inputPanel" width="690px" border="0" cellpadding="0" cellspacing="0">
+				  <tr height="35px" >
+					 <td width="230px" >
+						<select id="stockN" width="220px" type="select" class="inputelement" onchange="selectChange()"></select>
+					 </td>
+					 <td width="210px" style="text-align: center; padding-left: 10px;" >
+						Qty: <input id="qtyN" type="text" class="inputelement" size="9"/>
+					 </td>
+					 <td width="230px" style="text-align: right;">
+						Price: <input id="pxN" type="text" class="inputelement" size="9"/>
+					 </td>
+					 
+				  </tr>
+				  <tr class="inputPanel" height="35px" >
+				   <td width="230px"></td>
+					<td width="210px" style="text-align: center;">
+						<input type="submit" id="buy" class="buttonBuy" disabled value="Buy" onclick="submitForm('BUY')" />
+						<input type="submit" id="sell" class="buttonSell" disabled value="Sell" onclick="submitForm('SELL')"/>
+					 </td>
+					 <td width="230px" style="text-align: right;">
+						<input type="submit" id="gridOpt" style="background: #fff url('images/plus.gif') no-repeat center right; color: #444; padding-right: 16px; font-size: 9pt; border-style: none; border-radius: 3px;" value="Show my orders " onclick="changeOrdersDisplay()"/>
+					 </td>
+				  </tr>
+				</table>
+			</form>
+			
+			<!-- orders table; see Lightstreamer-related code in buysell.js -->
+			<div id="needforscroll" style="height: 160px; overflow-x: hidden; overflow-y: scroll; display: none;" >
+			 <table width="670px" cellspacing="1" cellpadding="2" border="0">
+				<tr class="tableTitle">
+					 <td colspan="6">Orders Log</td>
+				</tr>
+				<tr>
+				  <td width="90px" nowrap id="col_ord_prog" class="tableTitle">
+					 <a href="#" onclick="changeSortOrders('prog');return false;">Prog</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_prog" /></td>
+				  <td width="140px" nowrap id="col_ord_stock" class="tableTitle">
+					  <a href="#" onclick="changeSortOrders('stock');return false;">Stock</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_stock" /></td>
+				  <td width="55px" nowrap id="col_ord_side" class="tableTitle">
+					 <a href="#" onclick="changeSortOrders('side');return false;">Order</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_side" /></td>
+				  <td width="105px" nowrap id="col_ord_qty" class="tableTitle">
+					 <a href="#" onclick="changeSortOrders('qty');return false;">Quantity</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_qty" /></td>
+				  <td width="105px" nowrap id="col_ord_px" class="tableTitle">
+					 <a href="#" onclick="changeSortOrders('px');return false;">Price</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_px" /></td>
+				  <td width="170px" nowrap id="col_ord_status" class="tableTitle">
+					 <a href="#" onclick="changeSortOrders('status');return false;">Status</a>
+					 <img width="10" src="images/spacer.gif" id="img_ord_status" /></td>
+				</tr>
+
+				<tr class="tablerow" id="orders" data-source="lightstreamer" >
+				  <td><div data-source="lightstreamer" data-field="prog"></div></td>
+				  <td><div data-source="lightstreamer" data-field="stock"></div></td>
+				  <td><div data-source="lightstreamer" data-field="side"></div></td>
+				  <td><div data-source="lightstreamer" data-field="qty"></div></td>
+				  <td><div data-source="lightstreamer" data-field="px"></div></td>
+				  <td><div data-source="lightstreamer" data-field="status"></div></td>
+				</tr>
+			 </table>
+			</div>
+			
+			<table width="690px" class="tablespacer">
+				<tr>
+					<td class="tablebook">
+						<table  width="340px" cellspacing="1" cellpadding="1" border="0">
+							<!-- row template; will be cloned for each received "ADD" command -->
+							<tr id="buyside" data-source="lightstreamer">
+								<td width="50%" style="text-align: right;"><div data-source="lightstreamer" data-field="qty"></div></td>
+								<td width="50%" style="text-align: center;"><div data-source="lightstreamer" data-field="key"></div></td>
+							</tr>
+						</table>
+					</td>
+					<td class="tablebook">
+						<table width="340px"  cellspacing="1" cellpadding="1" border="0">
+							<!-- row template; will be cloned for each received "ADD" command -->
+							<tr id="sellside" data-source="lightstreamer">
+								<td width="50%" style="text-align: center;"><div data-source="lightstreamer" data-field="key"></div></td>
+								<td width="50%" style="text-align: right;"><div data-source="lightstreamer" data-field="qty"></div></td>
+							</tr>
+						</table>
+					</td>
+				 </tr>
+			</table>
+			<table width="690px">
+				<tr>
+					<td>
+						<div class="verysmall" style="text-align: left;" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="buy_depth">--</div>
+					</td>
+					<td>
+						<div class="verysmall" style="text-align: center;" >Market Depth</div>
+					</td>
+					<td>
+						<div class="verysmall" style="text-align: right;" data-source="lightstreamer" data-grid="Sintesi" data-item="1" data-field="sell_depth">--</div>
+					</td>
+				</tr>
+			</table>
+		 </div>
+			 
+  </div>
+	
+<script src="js/require.js"></script>
+<script src="js/lightstreamer.js"></script>
+<script src="js/buysell.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
