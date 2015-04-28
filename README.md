@@ -20,7 +20,7 @@ Lightstreamer has semi-native support for market depth, which can be managed ver
 You will be able to add, update, and remove rows, where each row is identified by a key, which is the price. Lightstreamer will take care of aggregating updates to market depth in the most optimized way, based on bandwidth and frequency constraints.<br>
 This way, you will be able to manage full market depths even on unreliable networks and also benefit from update resampling with conflation, if needed.<br>
 
-The demo is based on an adapter that simulates the generation of random orders and any contracts in case of matching. Furthermore you can add orders at your convenience through the basic input form.<br>
+The demo is based on an adapter that simulates the generation of random orders and any contracts in case of matching. Furthermore you can add orders at your convenience through the basic input form (only limited orders are allowed).<br>
 
 The demo includes the following client-side functionalities:
 * A [Subscription](http://www.lightstreamer.com/docs/client_javascript_uni_api/Subscription.html) containing 1 item, subscribed to in `MERGE` mode feeding a [StaticGrid](http://www.lightstreamer.com/docs/client_javascript_uni_api/StaticGrid.html) (showing summary data for the stock).
