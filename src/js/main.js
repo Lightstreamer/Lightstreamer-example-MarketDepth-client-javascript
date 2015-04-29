@@ -32,6 +32,12 @@ var buySideSub = null;
 var sellSideSub = null;
 
 function selectChange() {
+	var var1 = document.getElementById("qtyN");
+	var var2 = document.getElementById("pxN");
+	
+	var1.value = '';
+	var2.value = '';
+	
 	if (summarySub) {
 		client.unsubscribe(summarySub);
 		summarySub.setItems([document.getElementById("stockN").value]);
