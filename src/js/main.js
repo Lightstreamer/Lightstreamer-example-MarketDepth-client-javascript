@@ -108,7 +108,7 @@ require(["js/lsClient","StaticGrid","Subscription"],function(lsClient,StaticGrid
 		}
 		});
 		
-	var mySubscription = new Subscription("MERGE",[document.getElementById("stockN").value],myGrid.extractFieldList()); // myNick is used in the item name to subscribe to
+	var mySubscription = new Subscription("MERGE",[stockname],myGrid.extractFieldList());
 
 	mySubscription.setRequestedSnapshot("yes");
 	mySubscription.addListener(myGrid);
