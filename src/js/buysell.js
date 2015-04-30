@@ -149,36 +149,36 @@ function submitForm(op) {
 //////////////// Grid Sort Management
 
 var initialOrdersSort = "prog";
-var ordersDirection = false; // true = decreasing; false = increasing; null = no sort
+var ordersDirection = true; // true = decreasing; false = increasing; null = no sort
 
 function changeSortOrders(sortOn) {
   var sortedBy = ordersGrid.getSortField();
   if (sortOn == sortedBy) {
-    if (ordersDirection == false) {
-      ordersDirection = true;
-      document.getElementById("img_ord_" + sortOn).src = "images/down.gif";
-    } else if (ordersDirection == true) {
+    if (ordersDirection == true) {
+      ordersDirection = false;
+      document.getElementById("img_ord_" + sortOn).src = "images/up.gif";
+    } else if (ordersDirection == false) {
       ordersDirection = null;
       document.getElementById("img_ord_" + sortOn).src = "images/spacer.gif";
       document.getElementById("col_ord_" + sortOn).className = "tableTitle";
     } else {
-      ordersDirection = false;
+      ordersDirection = true;
       document.getElementById("img_ord_" + sortOn).src = "images/up.gif";
     }
   } else {
-    ordersDirection = false;
+    ordersDirection = true;
     if (sortedBy != null) {
       document.getElementById("img_ord_" + sortedBy).src = "images/spacer.gif";
       document.getElementById("col_ord_" + sortedBy).className = "tableTitle";
     }
-    document.getElementById("img_ord_" + sortOn).src = "images/up.gif";
+    document.getElementById("img_ord_" + sortOn).src = "images/down.gif";
     document.getElementById("col_ord_" + sortOn).className = "tableTitleSorted";
   }
 
   if (ordersDirection == null) {
     ordersGrid.setSort(null);
   } else {
-    if (sortOn == "qty" || sortOn == "prog") {
+    if (sortOn == "qty" || sortOn == "prog" || sortOn == "px") {
       ordersGrid.setSort(sortOn, ordersDirection, true, false);
     } else {
       ordersGrid.setSort(sortOn, ordersDirection);
