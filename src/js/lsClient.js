@@ -25,7 +25,6 @@ define(["LightstreamerClient","StatusWidget"],function(LightstreamerClient,Statu
 	 // Test online:
     //var lsClient = new LightstreamerClient("http://push.lightstreamer.com","MARKETDEPTH");
 
-    lsClient.connectionSharing.enableSharing("MessengerDemoCommonConnection", "ATTACH", "CREATE");
     lsClient.addListener(new StatusWidget("left", "0px", true));
     lsClient.connect();
     
