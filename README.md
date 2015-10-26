@@ -3,7 +3,7 @@
 The *Market Depth Demo* is a very simple market depth application based on Lightstreamer for its real-time communication needs.<br>
 
 This project includes a web client front-end for the demo.
-The server-side part of this demo, the Metadata and Data Adapters, is covered in this project: [Lightstreamer - Market Depth Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-MarketDepth-adapter-java).
+The server-side part of this demo, the Metadata and Data Adapters, is covered in this project: [Lightstreamer - Market Depth Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-MarketDepth-adapter-java).
 
 ## Live Demo
 
@@ -30,7 +30,7 @@ The demo includes the following client-side functionalities:
 ## Install
 
 If you want to install a version of this demo pointing to your local Lightstreamer Server, follow these steps:
-* As prerequisite, the [Lightstreamer - Market Depth Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-MarketDepth-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please check out that project and follow the installation instructions provided with it.
+* As prerequisite, the [Lightstreamer - Market Depth Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-MarketDepth-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please check out that project and follow the installation instructions provided with it.
 * Download this project.
 * Get the `lightstreamer.js` file from the [latest Lightstreamer distribution](http://www.lightstreamer.com/download) and put it in the `src/js` folder.
 Alternatively, you can build a `lightstreamer.js` file from the [online generator](http://www.lightstreamer.com/distros/Lightstreamer_Allegro-Presto-Vivace_6_0_20150213/Lightstreamer/DOCS-SDKs/sdk_client_javascript/tools/generator.html). In that case, be sure to include the LightstreamerClient, Subscription, StaticGrid, DynaGrid, and StatusWidget modules and to use the "Use AMD" version.
@@ -47,7 +47,7 @@ and change it accordingly.
 
 ### Lightstreamer Adapters Needed by This Client
 
-* [Lightstreamer - Basic Market Depth Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-MarketDepth-adapter-java)
+* [Lightstreamer - Basic Market Depth Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-MarketDepth-adapter-java)
 
 ## Lightstreamer Compatibility Notes
 
