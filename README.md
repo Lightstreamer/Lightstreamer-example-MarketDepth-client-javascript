@@ -9,7 +9,7 @@ The server-side part of this demo, the Metadata and Data Adapters, is covered in
 
 [![screenshot](screenshot.png)](http://demos.lightstreamer.com/MarketDepthDemo)
 
-###[![](http://demos.lightstreamer.com/site/img/play.png) View live demo](http://demos.lightstreamer.com/MarketDepthDemo)
+### [![](http://demos.lightstreamer.com/site/img/play.png) View live demo](http://demos.lightstreamer.com/MarketDepthDemo)
 
 ## Details
 
