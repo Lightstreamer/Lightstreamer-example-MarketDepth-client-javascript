@@ -33,9 +33,6 @@ If you want to install a version of this demo pointing to your local Lightstream
 * As prerequisite, the [Lightstreamer - Market Depth Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-MarketDepth-adapter-java) has to be deployed on your local Lightstreamer Server instance. Please check out that project and follow the installation instructions provided with it.
 * Download this project.
 * Get the `lightstreamer.min.js` file from [npm](https://www.npmjs.com/package/lightstreamer-client-web) or [unpkg](https://unpkg.com/lightstreamer-client-web/lightstreamer.min.js) and put it in the `src/js` folder.
-  Alternatively, you can generate a customized lightstreamer.min.js library containing only the classes you actually use;
-  see the build instructions on the [GitHub page](https://github.com/Lightstreamer/Lightstreamer-lib-client-javascript#building).
-  In that case, be sure to include the LightstreamerClient, Subscription, StaticGrid, DynaGrid, and StatusWidget modules.
 * Get the `require.js` file form [requirejs.org](http://requirejs.org/docs/download.html) and put it in the `src/js` folder.
 * Deploy this demo on the Lightstreamer Server (used as Web server) or in any external Web Server. In the former case, please create the folders `<LS_HOME>/pages/MarketDepthDemo` and copy here the contents of the `/src` folder of this project.
 The client demo configuration assumes that Lightstreamer Server, Lightstreamer Adapters, and this client are launched on the same machine. If you need to target a different Lightstreamer server, please search in `js/lsClient.js` this line:<BR/> 
@@ -53,4 +50,4 @@ and change it accordingly.
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer JavaScript Client library version 6.2 or newer (installation instructions for version 8.0 or newer).
+* Compatible with Lightstreamer JavaScript Client library version 6.2 or newer.
