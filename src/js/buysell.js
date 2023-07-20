@@ -139,8 +139,8 @@ function submitForm(op) {
       onError: function(originalMex) {
         fillOrdersTable(prog, "ERROR");
       },
-      onProcessed: function(originalMex) {
-        fillOrdersTable(prog, "PROCESSED");
+      onProcessed: function(originalMex, response) {
+        fillOrdersTable(prog, response);
       }
     });
    }

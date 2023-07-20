@@ -25,7 +25,7 @@ The demo is based on an adapter that simulates the generation of random orders a
 The demo includes the following client-side functionalities:
 * A [Subscription](https://lightstreamer.com/api/ls-web-client/latest/Subscription.html) containing 1 item, subscribed to in `MERGE` mode feeding a [StaticGrid](https://lightstreamer.com/api/ls-web-client/latest/StaticGrid.html) (showing summary data for the stock).
 * Two [Subscription](https://lightstreamer.com/api/ls-web-client/latest/Subscription.html)s containing 1 item each, subscribed to in `COMMAND` mode feeding two [DynaGrid](https://lightstreamer.com/api/ls-web-client/latest/DynaGrid.html)s (showing the bid and ask lists).
-* The orders are sent to the adapter through the Lightstreamer Server using the [LightstreamerClient.sendMessage](https://lightstreamer.com/api/ls-web-client/latest/LightstreamerClient.html#sendMessage) utility.
+* The orders are sent to the adapter through the Lightstreamer Server using the [LightstreamerClient.sendMessage](https://lightstreamer.com/api/ls-web-client/latest/LightstreamerClient.html#sendMessage) utility. A confirmation response is received from the Metadata Adapter.
 
 ## Install
 
@@ -50,4 +50,6 @@ and change it accordingly.
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer JavaScript Client library version 6.2 or newer (installation instructions for version 8.0 or newer).
+* Compatible with Lightstreamer SDK for Web Clients version 9.0.0 or newer.
+* For a version of this example compatible with Lightstreamer SDK for Web Clients version 6.2 to 8.0, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-MarketDepth-client-javascript/releases/tag/last_without_order_response).
+
